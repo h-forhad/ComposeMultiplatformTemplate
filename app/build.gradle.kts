@@ -55,6 +55,8 @@ kotlin {
 
     sourceSets.jvmMain.dependencies {
         implementation(compose.desktop.currentOs)
+        implementation("androidx.collection:collection:1.2.0")
+
     }
 
     sourceSets.iosMain.dependencies {
