@@ -2,8 +2,7 @@
 >
     <application
             android:label="KMP Setup Sample App"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-    >
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         <activity android:name="com.greenrobotdev.wanderwise.MainActivity" android:exported="true">
             <intent-filter>
