@@ -1,4 +1,4 @@
-package io.sellmair.app
+package com.greenrobotdev.wanderwise
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

@@ -1,4 +1,4 @@
-package io.sellmair.app
+package com.greenrobotdev.wanderwise
 
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application

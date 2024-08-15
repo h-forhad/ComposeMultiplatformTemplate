@@ -1,4 +1,4 @@
-package io.sellmair.app
+package com.greenrobotdev.wanderwise
 
 import android.os.Bundle
 import androidx.activity.compose.setContent

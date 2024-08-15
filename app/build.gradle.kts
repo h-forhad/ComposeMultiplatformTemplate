@@ -1,10 +1,10 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
-    kotlin("multiplatform")
-    kotlin("plugin.compose")
-    id("org.jetbrains.compose")
-    id("com.android.application")
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.jetbrainsCompose)
 }
 
 kotlin {
@@ -18,6 +18,7 @@ kotlin {
     iosSimulatorArm64()
 
     sourceSets.commonMain.dependencies {
+        api(project(":decompose-router"))
         implementation(compose.foundation)
         implementation(compose.material3)
         implementation(compose.runtime)
@@ -36,18 +37,19 @@ kotlin {
 /* Android Configuration */
 android {
     compileSdk = 34
-    namespace = "io.sellmair.kmp.getting.started"
+    namespace = "com.greenrobotdev.wanderwise.android"
 
     defaultConfig {
         minSdk = 29
-        applicationId = "io.sellmair.kmp.getting.started"
     }
 }
 
 /* iOS Configuration */
 kotlin.targets.withType<KotlinNativeTarget>().configureEach {
     binaries.framework {
-        baseName = "KmpApp"
+        baseName = "WanderWise"
         isStatic = true
+
+        export(project(":decompose-router"))
     }
 }
