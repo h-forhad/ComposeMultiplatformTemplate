@@ -37,7 +37,6 @@ kotlin {
     val commonMain by getting {
       dependencies {
         api(libs.decompose)
-
         implementation(compose.runtime)
         implementation(compose.foundation)
         implementation(libs.decompose.compose)
@@ -85,6 +84,11 @@ kotlin {
       dependencies {
         implementation(libs.compose.ui.test.manifest)
       }
+    }
+
+    jvmMain.dependencies {
+
+      implementation(compose.desktop.currentOs)
     }
 
     val jsMain by getting {

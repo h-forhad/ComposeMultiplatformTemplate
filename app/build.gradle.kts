@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -10,12 +11,14 @@ plugins {
 kotlin {
     jvmToolchain(17)
 
-    jvm()
+//    jvm()
     androidTarget()
 
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+
+    jvm("desktop")
 
     sourceSets.commonMain.dependencies {
         api(project(":decompose-router"))
@@ -55,7 +58,7 @@ kotlin {
 
     sourceSets.jvmMain.dependencies {
         implementation(compose.desktop.currentOs)
-        implementation("androidx.collection:collection:1.2.0")
+        implementation("androidx.collection:collection:1.4.3")
 
     }
 

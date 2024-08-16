@@ -12,13 +12,8 @@ import io.github.xxfast.decompose.router.defaultRouterContext
 
 fun main() {
     application {
-        val windowState: WindowState = rememberWindowState()
-        val rootRouterContext: RouterContext = defaultRouterContext(windowState = windowState)
-
         Window(title = "KMP Demo", onCloseRequest = ::exitApplication) {
-            CompositionLocalProvider(LocalRouterContext provides rootRouterContext) {
-                HomeScreen()
-            }
+            HomeScreen()
         }
     }
 }

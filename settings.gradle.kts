@@ -28,3 +28,4 @@ dependencyResolutionManagement {
 
 include(":app")
 include(":decompose-router")
+include(":app:desktop")

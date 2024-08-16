@@ -64,10 +64,10 @@ calendar-compose-ranges = { module = "io.github.epicarchitect:calendar-compose-r
 calendar-compose-datepicker = { module = "io.github.epicarchitect:calendar-compose-datepicker", version.ref = "calendar-compose-ranges" }
 
 decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
+decompose-compose = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
 
 molecule-runtime = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
 decompose-router = { module = "io.github.xxfast:decompose-router", version.ref = "decompose-router" }
-decompose-compose = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
 
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 
@@ -104,5 +104,6 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+#composeMultiplatform = { id = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose" }
 
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
