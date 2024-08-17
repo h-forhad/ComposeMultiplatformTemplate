@@ -27,6 +27,7 @@ dependencyResolutionManagement {
 }
 
 include(":app")
+include(":core")
 include(":decompose-router")
 include(":app:desktop")
 include(":app:androidApp")

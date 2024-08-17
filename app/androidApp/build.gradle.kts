@@ -6,10 +6,10 @@ plugins {
 }
 
 android {
-    namespace = "com.greenrobot.wanderwise.android"
+    namespace = "com.greenrobotdev.wanderwise.android"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.greenrobot.wanderwise.android"
+        applicationId = "com.greenrobotdev.wanderwise.android"
         minSdk = 28
         versionCode = 1
         versionName = "1.0"

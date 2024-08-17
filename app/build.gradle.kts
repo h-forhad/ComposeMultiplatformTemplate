@@ -1,4 +1,5 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -6,21 +7,22 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.buildkonfig)
 }
 
 kotlin {
     jvmToolchain(17)
 
-//    jvm()
     androidTarget()
 
     iosX64()
     iosArm64()
     iosSimulatorArm64()
 
-    jvm("desktop")
+    jvm()
 
     sourceSets.commonMain.dependencies {
+        implementation(project(":core"))
         api(project(":decompose-router"))
         implementation(compose.ui)
         implementation(compose.foundation)
@@ -50,7 +52,7 @@ kotlin {
 
     sourceSets.androidMain.dependencies {
         implementation(libs.androidx.activity.compose)
-        implementation(libs.ktor.client)
+        implementation(libs.ktor.client.android)
         implementation(libs.ktor.client.okhttp)
         implementation(libs.kstore.file)
         implementation(libs.androidx.appcompat)
@@ -58,8 +60,6 @@ kotlin {
 
     sourceSets.jvmMain.dependencies {
         implementation(compose.desktop.currentOs)
-        implementation("androidx.collection:collection:1.4.3")
-
     }
 
     sourceSets.iosMain.dependencies {
@@ -71,7 +71,7 @@ kotlin {
 /* Android Configuration */
 android {
     compileSdk = 34
-    namespace = "com.greenrobotdev.wanderwise.android"
+    namespace = "${App.packageName}.android"
 
     defaultConfig {
         minSdk = 28
@@ -81,9 +81,44 @@ android {
 /* iOS Configuration */
 kotlin.targets.withType<KotlinNativeTarget>().configureEach {
     binaries.framework {
-        baseName = "WanderWise"
+        baseName = App.appName
         isStatic = true
 
         export(project(":decompose-router"))
     }
+}
+
+buildkonfig {
+    packageName = "${App.packageName}.app"
+
+    defaultConfigs {
+        val apiKey: String = gradleLocalProperties(projectRootDir = rootDir, providers = providers)
+            .getProperty("apiKey")
+
+        require(apiKey.isNotEmpty()) {
+            "Register your api key from free store and place it in local.properties as `apiKey`"
+        }
+
+        buildConfigField(STRING, "API_KEY", apiKey)
+    }
+}
+
+
+object App {
+    object Versions {
+        val major: Int = 1
+        val minor: Int = 3
+        val patch: Int = 0
+
+        val suffix: String? = null
+
+        val name = "$major.$minor.$patch"
+
+        val fullname: String = name
+            .let { version -> if (suffix.isNullOrEmpty()) version else "$version-$suffix" }
+    }
+
+    val packageName: String = "com.greenrobotdev.wanderwise"
+    val organisation: String = "greenrobotdev"
+    val appName: String = "WanderWise"
 }
