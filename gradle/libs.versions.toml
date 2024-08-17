@@ -30,6 +30,7 @@ molecule = "1.2.0"
 qdsfdhvh-image-loader = "1.5.1"
 sql-delight = "2.0.0"
 swipe-refresh = "0.31.4-beta"
+okio = "3.6.0"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -70,6 +71,7 @@ kstore-storage = { module = "io.github.xxfast:kstore-storage", version.ref = "ks
 ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
 ktor-client-ios = { group = "io.ktor", name = "ktor-client-darwin", version.ref = "ktor" }
 ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
 ktor-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
 ktor-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
@@ -81,6 +83,10 @@ qdsfdhvh-image-loader = { module = "io.github.qdsfdhvh:image-loader", version.re
 sql-delight-android = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sql-delight" }
 sql-delight-coroutines-extension = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sql-delight" }
 sql-delight-ios = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sql-delight" }
+swipe-refresh = { group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "swipe-refresh" }
+
+okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
+
 
 [plugins]
 #composeMultiplatform = { id = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose" }
@@ -92,3 +98,5 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 buildkonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildkonfig" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+

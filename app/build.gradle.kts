@@ -23,6 +23,7 @@ kotlin {
 
     sourceSets.commonMain.dependencies {
         implementation(project(":core"))
+        implementation(project(":online-store"))
         api(project(":decompose-router"))
         implementation(compose.ui)
         implementation(compose.foundation)
@@ -36,9 +37,11 @@ kotlin {
         implementation(libs.ktor.core)
         implementation(libs.ktor.serialization)
         implementation(libs.ktor.logging)
+        implementation(libs.ktor.content.negotiation)
 
         implementation(libs.koin.core)
         implementation(libs.molecule.runtime)
+        implementation(libs.koin.compose)
         implementation(libs.kstore)
 
         implementation(libs.qdsfdhvh.image.loader)
@@ -60,6 +63,9 @@ kotlin {
 
     sourceSets.jvmMain.dependencies {
         implementation(compose.desktop.currentOs)
+        implementation(libs.ktor.client.cio)
+        implementation(libs.kstore.file)
+        implementation(libs.okio)
     }
 
     sourceSets.iosMain.dependencies {
@@ -102,7 +108,6 @@ buildkonfig {
         buildConfigField(STRING, "API_KEY", apiKey)
     }
 }
-
 
 object App {
     object Versions {

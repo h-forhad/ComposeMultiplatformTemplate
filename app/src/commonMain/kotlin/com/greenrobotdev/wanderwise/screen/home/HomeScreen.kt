@@ -44,6 +44,7 @@ fun HomeScreen() {
             ) {
 
                 Text("Details")
+
                 Button(onClick = {
                     router.pop()
                 }) {

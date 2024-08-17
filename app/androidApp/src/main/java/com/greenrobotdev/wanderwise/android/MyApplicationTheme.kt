@@ -1,4 +1,4 @@
-package com.greenrobot.wanderwise.android
+package com.greenrobotdev.wanderwise.android
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape

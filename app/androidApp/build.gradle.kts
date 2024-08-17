@@ -38,11 +38,13 @@ android {
 
 dependencies {
     implementation(project(":app"))
+    implementation(project(":core"))
+    implementation(project(":online-store"))
     implementation(libs.androidx.activity.compose)
     implementation(compose.ui)
     implementation(compose.material3)
     implementation(compose.preview)
     implementation(libs.koin.android)
-
+    implementation(libs.koin.core)
     debugImplementation(compose.uiTooling)
 }

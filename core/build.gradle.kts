@@ -1,8 +1,12 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.buildkonfig)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -21,15 +25,16 @@ kotlin {
     )
 
     sourceSets.commonMain.dependencies {
+        api(project(":decompose-router"))
         implementation(compose.ui)
         implementation(compose.foundation)
         implementation(compose.material3)
         implementation(compose.material)
         implementation(compose.runtime)
         implementation(compose.materialIconsExtended)
+
         implementation(libs.kotlin.corotines)
         implementation(libs.kotlin.datetime)
-
         implementation(libs.ktor.core)
         implementation(libs.ktor.content.negotiation)
         implementation(libs.ktor.serialization)
@@ -44,7 +49,6 @@ kotlin {
     sourceSets.androidMain.dependencies {
         implementation(libs.ktor.client.android)
         implementation(libs.ktor.client.okhttp)
-        implementation(libs.sql.delight.android)
         implementation(libs.kstore.file)
     }
 
@@ -55,13 +59,10 @@ kotlin {
     sourceSets.iosMain.dependencies {
         implementation(libs.kstore.file)
         implementation(libs.ktor.client.ios)
-        implementation(libs.sql.delight.ios)
         implementation(libs.kstore.file)
         implementation(libs.ktor.client.ios)
-        implementation(libs.sql.delight.ios)
     }
 }
-
 
 android {
     namespace = "com.greenrobotdev.planner"
@@ -74,6 +75,19 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+}
 
+buildkonfig {
+    packageName = "com.greenrobotdev.wanderwise.core"
 
+    defaultConfigs {
+        val apiKey: String = gradleLocalProperties(projectRootDir = rootDir, providers = providers)
+            .getProperty("apiKey")
+
+        require(apiKey.isNotEmpty()) {
+            "Register your api key from free store and place it in local.properties as `apiKey`"
+        }
+
+        buildConfigField(STRING, "API_KEY", apiKey)
+    }
 }

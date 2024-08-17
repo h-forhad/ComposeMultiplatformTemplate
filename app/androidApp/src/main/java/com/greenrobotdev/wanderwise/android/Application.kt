@@ -1,15 +1,26 @@
-package com.greenrobot.wanderwise.android
+package com.greenrobotdev.wanderwise.android
 
 import android.app.Application
+import com.greenrobotdev.core.coreModule
+import com.greenrobotdev.onlinestore.onlineStoreModule
+import com.greenrobotdev.wanderwise.appModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
-class Application: Application() {
+class Application : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
-//        initKoin {
-//            androidLogger(Level.ERROR)
-//            androidContext(this@Application)
-//        }
+        startKoin {
+            androidLogger(Level.ERROR)
+            androidContext(this@Application)
+            modules(appModule)
+            modules(coreModule)
+            modules(onlineStoreModule)
+
+        }
     }
 }

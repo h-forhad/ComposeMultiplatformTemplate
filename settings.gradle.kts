@@ -28,6 +28,7 @@ dependencyResolutionManagement {
 
 include(":app")
 include(":core")
+include(":online-store")
 include(":decompose-router")
 include(":app:desktop")
 include(":app:androidApp")

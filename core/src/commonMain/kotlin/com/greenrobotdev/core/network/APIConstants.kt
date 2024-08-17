@@ -1,5 +1,5 @@
 package com.greenrobotdev.core.network
 
-internal object APIConstants {
+object APIConstants {
     val BASE_URL: String = "fakestoreapi.com"
 }
