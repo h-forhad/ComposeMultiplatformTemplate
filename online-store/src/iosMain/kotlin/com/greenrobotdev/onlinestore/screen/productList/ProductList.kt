@@ -14,7 +14,7 @@ actual fun ProductList(
     onRefresh: () -> Unit,
     isRefreshing : Boolean,
     onProductSelect: (product: Product) -> Unit,
-    block: @Composable (products: Product) -> Unit,
+    content: @Composable (product: Product) -> Unit,
 ){
         LazyVerticalGrid(
         columns = GridCells.Fixed(2),

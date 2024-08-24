@@ -7,10 +7,12 @@ import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -30,10 +32,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.greenrobotdev.core.ui.TopAppBar
 import com.greenrobotdev.core.utils.statusBarPadding
 import com.greenrobotdev.onlinestore.domain.entity.Product
 import com.greenrobotdev.onlinestore.ui.ProductItem
+import composemultiplatformtemplate.online_store.generated.resources.Res
+import composemultiplatformtemplate.online_store.generated.resources.ic_test
 import io.github.xxfast.decompose.router.rememberOnRoute
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun ProductListScreen(
@@ -51,7 +57,6 @@ fun ProductListScreen(
     ProductListView(
         state = state,
         onProductSelect = onProductSelect,
-        isRefreshing = state.isRefreshing,
         onRefresh = { viewModel.onRefresh() },
         onWishListPressed = wishlistSelect,
         onCartPressed = cartSelected,
@@ -64,53 +69,56 @@ fun ProductListScreen(
 fun ProductListView(
     state: ProductListState,
     onProductSelect: (product: Product) -> Unit,
-    isRefreshing: Boolean,
     onRefresh: () -> Unit,
     onWishListPressed: () -> Unit,
     onCartPressed: () -> Unit,
 ) {
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar(
+            TopAppBar(
                 title = {
                     Text(text = "Online Store")
                 },
                 actions = {
-
-                    IconButton(onClick = onWishListPressed) {
-                        BadgedBox(
-                            badge = {
-                                if (state.numberOfFavorite > 0)
-                                    Badge {
-                                        Text(state.numberOfFavorite.toString())
-                                    }
+                    Row(modifier = Modifier.wrapContentWidth()){
+                        IconButton(onClick = onWishListPressed) {
+                            BadgedBox(
+                                badge = {
+                                    if (state.numberOfFavorite > 0)
+                                        Badge {
+                                            Text(state.numberOfFavorite.toString())
+                                        }
+                                }
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.Favorite,
+                                    contentDescription = "Favorite"
+                                )
+                                Icon(
+                                    painter = painterResource(Res.drawable.ic_test),
+                                    contentDescription = "Favorite"
+                                )
                             }
-                        ) {
-                            Icon(
-                                imageVector = Icons.Filled.Favorite,
-                                contentDescription = "Favorite"
-                            )
                         }
-                    }
-                    IconButton(onClick = onCartPressed) {
-                        BadgedBox(
-                            badge = {
-                                if (state.numberOfCartProducts > 0) {
-                                    Badge {
-                                        Text(state.numberOfCartProducts.toString())
+                        IconButton(onClick = onCartPressed) {
+                            BadgedBox(
+                                badge = {
+                                    if (state.numberOfCartProducts > 0) {
+                                        Badge {
+                                            Text(state.numberOfCartProducts.toString())
+                                        }
                                     }
                                 }
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.ShoppingCart,
+                                    contentDescription = "Cart"
+                                )
                             }
-                        ) {
-                            Icon(
-                                imageVector = Icons.Filled.ShoppingCart,
-                                contentDescription = "Cart"
-                            )
                         }
                     }
-                },
-                modifier = Modifier
-                    .windowInsetsPadding(WindowInsets.statusBarPadding)
+
+                }
             )
         },
         modifier = Modifier

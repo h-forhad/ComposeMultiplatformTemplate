@@ -94,8 +94,8 @@ fun ProductDetailsView(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {},
+            com.greenrobotdev.core.ui.TopAppBar(
+                title = { },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
@@ -103,8 +103,8 @@ fun ProductDetailsView(
                         )
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.White)
             )
+
         },
         bottomBar = {
             BottomAppBar(

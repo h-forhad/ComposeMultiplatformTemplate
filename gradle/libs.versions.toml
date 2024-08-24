@@ -25,7 +25,8 @@ kotlinBrowser = "1.0.0-pre.752"
 kotlinx-serialization = "1.6.3"
 kstore = "0.7.2"
 ktor = "2.3.12"
-material3-window = "1.1.2"
+material-window-size = "0.5.0"
+moko-resource="0.24.2"
 molecule = "1.2.0"
 qdsfdhvh-image-loader = "1.5.1"
 sql-delight = "2.0.0"
@@ -85,6 +86,7 @@ sql-delight-coroutines-extension = { group = "app.cash.sqldelight", name = "coro
 sql-delight-ios = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sql-delight" }
 swipe-refresh = { group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "swipe-refresh" }
 
+material-window-size = { module = "dev.chrisbanes.material3:material3-window-size-class-multiplatform", version.ref = "material-window-size" }
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 
 
@@ -99,4 +101,3 @@ kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = 
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 buildkonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildkonfig" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-

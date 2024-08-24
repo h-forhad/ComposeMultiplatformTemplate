@@ -1,5 +1,6 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
+import dev.icerock.gradle.MRVisibility
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -30,7 +31,8 @@ kotlin {
         implementation(compose.material3)
         implementation(compose.runtime)
         implementation(compose.materialIconsExtended)
-
+        implementation(compose.material)
+        implementation(compose.components.resources)
 
         implementation(libs.kotlin.corotines)
         implementation(libs.kotlin.datetime)
@@ -51,6 +53,10 @@ kotlin {
         implementation(libs.calendar.compose.ranges) // includes basis
         implementation(libs.calendar.compose.pager) // includes basis
         implementation(libs.calendar.compose.datepicker) // includes pager + ranges
+//        implementation(libs.material.window.size)
+
+        implementation(libs.moko.resource)
+        implementation(libs.moko.resource.compose)
     }
 
     sourceSets.androidMain.dependencies {

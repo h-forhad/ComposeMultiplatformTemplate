@@ -31,6 +31,8 @@ kotlin {
         implementation(compose.runtime)
         implementation(compose.materialIconsExtended)
         implementation(compose.material)
+        implementation(libs.material.window.size)
+        implementation(compose.components.resources)
 
         implementation(libs.kotlin.corotines)
         implementation(libs.kotlin.datetime)
@@ -58,7 +60,6 @@ kotlin {
         implementation(libs.ktor.client.okhttp)
         implementation(libs.kstore.file)
         implementation(libs.androidx.appcompat)
-        implementation(libs.swipe.refresh)
     }
 
     sourceSets.jvmMain.dependencies {
@@ -66,7 +67,6 @@ kotlin {
         implementation(libs.ktor.client.cio)
         implementation(libs.kstore.file)
         implementation(libs.okio)
-        implementation(libs.swipe.refresh)
     }
 
     sourceSets.iosMain.dependencies {

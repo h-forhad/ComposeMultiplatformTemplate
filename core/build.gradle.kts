@@ -32,6 +32,8 @@ kotlin {
         implementation(compose.material)
         implementation(compose.runtime)
         implementation(compose.materialIconsExtended)
+        implementation(libs.material.window.size)
+        implementation(compose.components.resources)
 
         implementation(libs.kotlin.corotines)
         implementation(libs.kotlin.datetime)
@@ -50,6 +52,8 @@ kotlin {
         implementation(libs.ktor.client.android)
         implementation(libs.ktor.client.okhttp)
         implementation(libs.kstore.file)
+        implementation(libs.androidx.activity.ktx)
+        implementation(libs.androidx.appcompat)
     }
 
     sourceSets.jvmMain.dependencies {

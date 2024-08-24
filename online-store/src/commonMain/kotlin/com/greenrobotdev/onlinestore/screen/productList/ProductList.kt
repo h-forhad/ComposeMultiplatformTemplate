@@ -9,5 +9,5 @@ expect fun ProductList(
     onRefresh: () -> Unit,
     isRefreshing : Boolean,
     onProductSelect: (product: Product) -> Unit,
-    block: @Composable (product: Product) -> Unit,
+    content: @Composable (product: Product) -> Unit,
 )

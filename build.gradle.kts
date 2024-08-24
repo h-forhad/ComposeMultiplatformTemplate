@@ -1,8 +1,4 @@
 plugins {
-//    kotlin("multiplatform") version "2.0.0" apply false
-//    kotlin("plugin.compose") version "2.0.0" apply false
-//    id("com.android.application") version "8.5.1" apply false
-//    id("org.jetbrains.compose") version "1.6.11" apply false
     alias(libs.plugins.androidApplication).apply(false)
     alias(libs.plugins.androidLibrary).apply(false)
     alias(libs.plugins.kotlinAndroid).apply(false)
@@ -10,4 +6,15 @@ plugins {
     alias(libs.plugins.compose.compiler).apply(false)
     alias(libs.plugins.jetbrainsCompose).apply(false)
     alias(libs.plugins.buildkonfig).apply(false)
+    alias(libs.plugins.mokoResource).apply(false)
 }
+
+//buildscript {
+//    repositories {
+//        google()
+//        mavenCentral()
+//    }
+//    dependencies {
+//        classpath( "dev.icerock.moko:resources-generator:0.24.2")
+//    }
+//}
