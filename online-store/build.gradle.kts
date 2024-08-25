@@ -1,7 +1,3 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
@@ -23,8 +19,10 @@ kotlin {
     jvm()
 
     sourceSets.commonMain.dependencies {
-        implementation(project(":core"))
-        api(project(":decompose-router"))
+        api(projects.decomposeRouter)
+
+        implementation(projects.core)
+
         implementation(compose.ui)
         implementation(compose.foundation)
         implementation(compose.material3)

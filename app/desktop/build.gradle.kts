@@ -45,20 +45,20 @@ compose.desktop {
 
             modules("java.instrument", "java.management", "jdk.unsupported")
 
-            packageName = "NYTimes"
+            packageName = "Favily"
 
             val iconsRoot = project.file("src/main/resources/icons")
 
             macOS {
-                iconFile.set { iconsRoot.resolve("nytimes-desktop.icns") }
+                iconFile.set { iconsRoot.resolve("favily-desktop.icns") }
                 packageVersion = appVersion
                 dmgPackageVersion = appVersion
                 pkgPackageVersion = appVersion
             }
 
             windows {
-                iconFile.set { iconsRoot.resolve("nytimes-desktop.ico") }
-                menuGroup = "NYTimes"
+                iconFile.set { iconsRoot.resolve("favily-desktop.ico") }
+                menuGroup = "Favily"
                 // see https://wixtoolset.org/documentation/manual/v3/howtos/general/generate_guids.html
                 upgradeUuid = "18159995-d967-4CD2-8885-77BFA97CFA9F"
                 packageVersion = appVersion
@@ -66,7 +66,7 @@ compose.desktop {
             }
 
             linux {
-                iconFile.set { iconsRoot.resolve("nytimes-desktop.png") }
+                iconFile.set { iconsRoot.resolve("favily_desktop.png") }
             }
         }
     }

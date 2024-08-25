@@ -5,6 +5,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -32,14 +33,22 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.greenrobotdev.core.ui.TopAppBar
 import com.greenrobotdev.core.utils.statusBarPadding
 import com.greenrobotdev.onlinestore.domain.entity.Product
 import com.greenrobotdev.onlinestore.ui.ProductItem
 import composemultiplatformtemplate.online_store.generated.resources.Res
+import composemultiplatformtemplate.online_store.generated.resources.allStringResources
+import composemultiplatformtemplate.online_store.generated.resources.app_name
+import composemultiplatformtemplate.online_store.generated.resources.cart_button
+import composemultiplatformtemplate.online_store.generated.resources.favorite_button
 import composemultiplatformtemplate.online_store.generated.resources.ic_test
+import composemultiplatformtemplate.online_store.generated.resources.retry_button
+import composemultiplatformtemplate.online_store.generated.resources.something_wrong
 import io.github.xxfast.decompose.router.rememberOnRoute
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun ProductListScreen(
@@ -61,7 +70,6 @@ fun ProductListScreen(
         onWishListPressed = wishlistSelect,
         onCartPressed = cartSelected,
     )
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -77,10 +85,10 @@ fun ProductListView(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(text = "Online Store")
+                    Text(text = stringResource(Res.string.app_name))
                 },
                 actions = {
-                    Row(modifier = Modifier.wrapContentWidth()){
+                    Row(modifier = Modifier.wrapContentWidth()) {
                         IconButton(onClick = onWishListPressed) {
                             BadgedBox(
                                 badge = {
@@ -92,11 +100,7 @@ fun ProductListView(
                             ) {
                                 Icon(
                                     imageVector = Icons.Filled.Favorite,
-                                    contentDescription = "Favorite"
-                                )
-                                Icon(
-                                    painter = painterResource(Res.drawable.ic_test),
-                                    contentDescription = "Favorite"
+                                    contentDescription = stringResource(Res.string.favorite_button)
                                 )
                             }
                         }
@@ -112,7 +116,7 @@ fun ProductListView(
                             ) {
                                 Icon(
                                     imageVector = Icons.Filled.ShoppingCart,
-                                    contentDescription = "Cart"
+                                    contentDescription = stringResource(Res.string.cart_button)
                                 )
                             }
                         }
@@ -135,11 +139,14 @@ fun ProductListView(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
-                    Column {
-                        Text("Something is wrong. Try again later.")
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(12.dp),
+                        horizontalAlignment =Alignment.CenterHorizontally
+                    ) {
+                        Text(stringResource(Res.string.something_wrong))
 
                         Button(onClick = onRefresh) {
-                            Text("Retry")
+                            Text(stringResource(Res.string.retry_button))
                         }
                     }
                 }
@@ -165,23 +172,4 @@ fun ProductListView(
         }
     }
 }
-//
-//@Composable
-//fun ProductList(
-//    products: List<Product>,
-//    onProductSelect: (product: Product) -> Unit,
-//) {
-//    LazyVerticalGrid(
-//        columns = GridCells.Fixed(2),
-//        modifier = Modifier.fillMaxSize()
-//    ) {
-//        items(products) {
-//            ProductItem(
-//                item = it,
-//                onProductSelect = onProductSelect
-//            )
-//        }
-//    }
-//
-//}
 

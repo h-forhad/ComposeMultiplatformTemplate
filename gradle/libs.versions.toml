@@ -17,9 +17,8 @@ essenity = "2.0.0"
 google-services = "4.4.0"
 google-services-map = "0.16.1"
 jetbrain-jvm = "1.8.0"
-koin = "3.5.6"
-koin-compose = "1.0.4"
-kotlin = "2.0.0"
+koin = "4.0.0-RC1"
+kotlin = "2.0.20"
 kotlin-datetime = "0.4.0"
 kotlinBrowser = "1.0.0-pre.752"
 kotlinx-serialization = "1.6.3"
@@ -29,8 +28,6 @@ material-window-size = "0.5.0"
 moko-resource="0.24.2"
 molecule = "1.2.0"
 qdsfdhvh-image-loader = "1.5.1"
-sql-delight = "2.0.0"
-swipe-refresh = "0.31.4-beta"
 okio = "3.6.0"
 
 [libraries]
@@ -56,7 +53,7 @@ decompose-compose = { module = "com.arkivanov.decompose:extensions-compose", ver
 decompose-router = { module = "io.github.xxfast:decompose-router", version.ref = "decompose-router" }
 google-services-map = { module = "com.google.maps:google-maps-services", version.ref = "google-services-map" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
-koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin-compose" }
+koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin" }
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koltin-gradle = { module ="org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-browser = { module = "org.jetbrains.kotlin-wrappers:kotlin-browser", version.ref = "kotlinBrowser" }
@@ -81,10 +78,6 @@ material-icons-extended = { module = "androidx.compose.material:material-icons-e
 molecule-gradle-plugin = { module = "app.cash.molecule:molecule-gradle-plugin", version.ref = "molecule" }
 molecule-runtime = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
 qdsfdhvh-image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "qdsfdhvh-image-loader" }
-sql-delight-android = { group = "app.cash.sqldelight", name = "android-driver", version.ref = "sql-delight" }
-sql-delight-coroutines-extension = { group = "app.cash.sqldelight", name = "coroutines-extensions", version.ref = "sql-delight" }
-sql-delight-ios = { group = "app.cash.sqldelight", name = "native-driver", version.ref = "sql-delight" }
-swipe-refresh = { group = "com.google.accompanist", name = "accompanist-swiperefresh", version.ref = "swipe-refresh" }
 
 material-window-size = { module = "dev.chrisbanes.material3:material3-window-size-class-multiplatform", version.ref = "material-window-size" }
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }

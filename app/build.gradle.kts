@@ -1,6 +1,5 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
-import dev.icerock.gradle.MRVisibility
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
@@ -23,9 +22,11 @@ kotlin {
     jvm()
 
     sourceSets.commonMain.dependencies {
-        implementation(project(":core"))
-        implementation(project(":online-store"))
-        api(project(":decompose-router"))
+        api(projects.decomposeRouter)
+
+        implementation(projects.core)
+        implementation(projects.onlineStore)
+
         implementation(compose.ui)
         implementation(compose.foundation)
         implementation(compose.material3)
@@ -55,8 +56,6 @@ kotlin {
         implementation(libs.calendar.compose.datepicker) // includes pager + ranges
 //        implementation(libs.material.window.size)
 
-        implementation(libs.moko.resource)
-        implementation(libs.moko.resource.compose)
     }
 
     sourceSets.androidMain.dependencies {

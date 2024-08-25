@@ -25,7 +25,7 @@ kotlin {
     )
 
     sourceSets.commonMain.dependencies {
-        api(project(":decompose-router"))
+        api(projects.decomposeRouter)
         implementation(compose.ui)
         implementation(compose.foundation)
         implementation(compose.material3)

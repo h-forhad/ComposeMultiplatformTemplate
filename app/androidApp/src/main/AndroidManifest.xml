@@ -8,8 +8,9 @@
         android:allowBackup="false"
         android:supportsRtl="true"
         android:name=".Application"
-        android:label="Online Store"
+        android:label="Favily"
         android:usesCleartextTraffic="true"
+        android:icon="@mipmap/ic_launcher"
         android:theme="@style/AppTheme">
         <activity
             android:name="com.greenrobotdev.wanderwise.android.MainActivity"

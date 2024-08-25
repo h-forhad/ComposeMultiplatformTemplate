@@ -20,6 +20,6 @@ actual fun ProductList(
         columns = GridCells.Fixed(2),
         modifier = Modifier.fillMaxSize()
     ) {
-        items(products) { product -> block(product) }
+        items(products) { product -> content(product) }
     }
 }
