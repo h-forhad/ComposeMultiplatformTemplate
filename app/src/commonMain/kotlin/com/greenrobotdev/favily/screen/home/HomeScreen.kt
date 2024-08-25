@@ -1,4 +1,4 @@
-package com.greenrobotdev.wanderwise.screen.home
+package com.greenrobotdev.favily.screen.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

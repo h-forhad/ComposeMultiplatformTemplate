@@ -1,4 +1,4 @@
-package com.greenrobotdev.wanderwise.android
+package com.greenrobotdev.favily.android
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

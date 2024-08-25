@@ -95,7 +95,7 @@ kotlin.targets.withType<KotlinNativeTarget>().configureEach {
         baseName = App.appName
         isStatic = true
 
-        export(project(":decompose-router"))
+        export(projects.decomposeRouter)
     }
 }
 
@@ -128,7 +128,7 @@ object App {
             .let { version -> if (suffix.isNullOrEmpty()) version else "$version-$suffix" }
     }
 
-    val packageName: String = "com.greenrobotdev.wanderwise"
+    val packageName: String = "com.greenrobotdev.favily"
     val organisation: String = "greenrobotdev"
-    val appName: String = "WanderWise"
+    val appName: String = "Favily"
 }

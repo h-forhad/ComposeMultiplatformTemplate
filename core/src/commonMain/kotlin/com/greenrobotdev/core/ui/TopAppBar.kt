@@ -43,9 +43,7 @@ fun TopAppBar(
         ) {
 
             Spacer(
-                modifier = Modifier
-                    .statusBarsPadding()
-                    .systemBarsPadding()
+                modifier = Modifier.statusBarsPadding()
             )
 
             statusBar()

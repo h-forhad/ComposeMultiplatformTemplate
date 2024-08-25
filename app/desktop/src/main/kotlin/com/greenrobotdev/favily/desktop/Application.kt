@@ -1,6 +1,5 @@
-package com.greenrobotdev.wanderwise.desktop
+package com.greenrobotdev.favily.desktop
 
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
@@ -9,8 +8,7 @@ import androidx.compose.ui.window.rememberWindowState
 import com.greenrobotdev.core.coreModule
 import com.greenrobotdev.onlinestore.di.appStorage
 import com.greenrobotdev.onlinestore.onlineStoreModule
-import com.greenrobotdev.wanderwise.appModule
-import com.greenrobotdev.wanderwise.screen.home.HomeScreen
+import com.greenrobotdev.favily.appModule
 import io.github.xxfast.decompose.router.LocalRouterContext
 import io.github.xxfast.decompose.router.RouterContext
 import io.github.xxfast.decompose.router.defaultRouterContext

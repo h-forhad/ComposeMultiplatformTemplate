@@ -10,9 +10,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":decompose-router"))
-    implementation(project(":app"))
-    implementation(project(":online-store"))
+    implementation(projects.decomposeRouter)
+    implementation(projects.app)
+    implementation(projects.core)
+    implementation(projects.onlineStore)
     implementation(compose.desktop.currentOs)
     implementation(compose.runtime)
     implementation(libs.koin.core)
@@ -22,7 +23,6 @@ dependencies {
     implementation(compose.preview)
     implementation(libs.decompose)
     implementation(libs.decompose.compose)
-    implementation(project(":core"))
 }
 
 val appVersion = "1.0.0"
@@ -30,7 +30,7 @@ version = appVersion
 
 compose.desktop {
     application {
-        mainClass = "com.greenrobotdev.wanderwise.desktop.ApplicationKt"
+        mainClass = "com.greenrobotdev.favily.desktop.ApplicationKt"
 
         nativeDistributions {
             buildTypes.release {

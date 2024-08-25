@@ -1,5 +1,5 @@
 import SwiftUI
-import WanderWise
+import Favily
 
 @main
 struct kmpSampleApp: App {
@@ -10,7 +10,7 @@ struct kmpSampleApp: App {
 
   var body: some Scene {
     WindowGroup {
-      ComposeView(routerContext: defaultRouterContext)
+      ComposeView(routerContext: defaultRouterContext).ignoresSafeArea()
     }
     .onChange(of: scenePhase) { newPhase in
         switch newPhase {
@@ -40,8 +40,39 @@ struct ComposeView: UIViewControllerRepresentable {
   let routerContext: RouterContext
 
   func makeUIViewController(context: Context) -> UIViewController {
-    return SampleAppViewControllerKt.createViewController(routerContext: routerContext)
+    let controller = SampleAppViewControllerKt.createViewController(routerContext: routerContext)
+      setupStatusBar(view: controller.view)
+    return controller
   }
 
   func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+    
+    private func setupStatusBar(view: UIView) {
+        let statusBarColor = UIColor(red: 112/255.0, green: 210/255.0, blue: 255/255.0, alpha: 1.0)
+         let statusbarView = UIApplication.shared.statusBarUIView
+         statusbarView?.backgroundColor = statusBarColor
+     }
+}
+
+extension UIApplication {
+var statusBarUIView: UIView? {
+    if #available(iOS 13.0, *) {
+        let tag = 38482
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+
+        if let statusBar = keyWindow?.viewWithTag(tag) {
+            return statusBar
+        } else {
+            guard let statusBarFrame = keyWindow?.windowScene?.statusBarManager?.statusBarFrame else { return nil }
+            let statusBarView = UIView(frame: statusBarFrame)
+            statusBarView.tag = tag
+            keyWindow?.addSubview(statusBarView)
+            return statusBarView
+        }
+    } else if responds(to: Selector(("statusBar"))) {
+        return value(forKey: "statusBar") as? UIView
+    } else {
+        return nil
+    }
+  }
 }

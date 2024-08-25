@@ -7,13 +7,13 @@
     <application
         android:allowBackup="false"
         android:supportsRtl="true"
-        android:name=".Application"
+        android:name="com.greenrobotdev.favily.android.Application"
         android:label="Favily"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.greenrobotdev.wanderwise.android.MainActivity"
+            android:name="com.greenrobotdev.favily.android.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.greenrobotdev.wanderwise.screen.home
+package com.greenrobotdev.favily.screen.home
 
 sealed class StoryHomeScreen {
   data object Home: StoryHomeScreen()

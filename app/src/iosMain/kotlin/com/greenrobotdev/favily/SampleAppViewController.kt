@@ -1,9 +1,11 @@
-package com.greenrobotdev.wanderwise
+package com.greenrobotdev.favily
 
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.CompositionLocalProvider
@@ -14,7 +16,6 @@ import com.greenrobotdev.core.coreModule
 import com.greenrobotdev.core.theme.AppTheme
 import com.greenrobotdev.onlinestore.di.appStorage
 import com.greenrobotdev.onlinestore.onlineStoreModule
-import com.greenrobotdev.wanderwise.screen.home.HomeScreen
 import io.github.xxfast.decompose.router.LocalRouterContext
 import io.github.xxfast.decompose.router.RouterContext
 import org.koin.core.context.startKoin
@@ -33,9 +34,6 @@ fun createViewController(
     }
 
     BoxWithConstraints(
-        modifier = Modifier
-            .windowInsetsPadding(WindowInsets.statusBars)
-            .windowInsetsPadding(WindowInsets.navigationBars)
     ) {
 
         CompositionLocalProvider(

@@ -1,4 +1,4 @@
-package com.greenrobotdev.wanderwise.data
+package com.greenrobotdev.favily.data
 
 import org.koin.dsl.module
 

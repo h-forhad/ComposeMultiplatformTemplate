@@ -74,12 +74,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.greenrobotdev.wanderwise.onlinestore"
+    namespace = "com.greenrobotdev.favily.onlinestore"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 28
-
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
