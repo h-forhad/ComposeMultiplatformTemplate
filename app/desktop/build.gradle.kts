@@ -15,6 +15,7 @@ dependencies {
     implementation(projects.core)
     implementation(projects.onlineStore)
     implementation(compose.desktop.currentOs)
+    implementation(libs.material.window.size)
     implementation(compose.runtime)
     implementation(libs.koin.core)
     implementation(compose.foundation)

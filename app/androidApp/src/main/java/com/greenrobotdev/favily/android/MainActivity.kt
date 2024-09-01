@@ -10,7 +10,8 @@ import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
-import com.greenrobotdev.core.theme.AppTheme
+import au.com.gridstone.pscore.app.screens.root.RootScreen
+import com.greenrobotdev.favily.theme.AppTheme
 import com.greenrobotdev.core.utils.LocalWindowSizeClass
 import com.greenrobotdev.onlinestore.di.appStorage
 import io.github.xxfast.decompose.router.LocalRouterContext
@@ -33,11 +34,11 @@ class MainActivity : ComponentActivity() {
 
             CompositionLocalProvider(
                 LocalRouterContext provides rootComponentContext,
-                LocalWindowSizeClass provides windowSizeClass
+                LocalWindowSizeClass provides windowSizeClass,
             ) {
                 AppTheme {
                     Surface(tonalElevation = 5.dp) {
-                        com.greenrobotdev.onlinestore.screen.home.HomeScreen()
+                       RootScreen()
                     }
                 }
 

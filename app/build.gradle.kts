@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.buildkonfig)
+    alias(libs.plugins.serialization)
 }
 
 kotlin {
@@ -34,6 +35,9 @@ kotlin {
         implementation(compose.materialIconsExtended)
         implementation(compose.material)
         implementation(compose.components.resources)
+        implementation(libs.material.window.size)
+        implementation(libs.russhwolf.settings)
+        implementation(libs.russhwolf.settings.coroutines)
 
         implementation(libs.kotlin.corotines)
         implementation(libs.kotlin.datetime)

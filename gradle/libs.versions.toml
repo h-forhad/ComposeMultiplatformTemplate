@@ -1,8 +1,8 @@
 [versions]
 agp = "8.5.2"
-androidx-activity ="1.9.1"
+androidx-activity = "1.9.1"
 androidx-activityCompose = "1.9.1"
-androidx-fragment ="1.8.2"
+androidx-fragment = "1.8.2"
 appcompat = "1.7.0"
 buildkonfig = "0.15.1"
 calendar-compose-ranges = "1.0.5"
@@ -25,10 +25,11 @@ kotlinx-serialization = "1.6.3"
 kstore = "0.7.2"
 ktor = "2.3.12"
 material-window-size = "0.5.0"
-moko-resource="0.24.2"
+moko-resource = "0.24.2"
 molecule = "1.2.0"
 qdsfdhvh-image-loader = "1.5.1"
 okio = "3.6.0"
+russhwolf-settings = "1.1.1"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -55,7 +56,7 @@ google-services-map = { module = "com.google.maps:google-maps-services", version
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin" }
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
-koltin-gradle = { module ="org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+koltin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-browser = { module = "org.jetbrains.kotlin-wrappers:kotlin-browser", version.ref = "kotlinBrowser" }
 kotlin-corotines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines-version" }
 kotlin-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlin-datetime" }
@@ -78,7 +79,10 @@ material-icons-extended = { module = "androidx.compose.material:material-icons-e
 molecule-gradle-plugin = { module = "app.cash.molecule:molecule-gradle-plugin", version.ref = "molecule" }
 molecule-runtime = { module = "app.cash.molecule:molecule-runtime", version.ref = "molecule" }
 qdsfdhvh-image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "qdsfdhvh-image-loader" }
-
+russhwolf-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "russhwolf-settings" }
+russhwolf-settings-serialization = { module = "com.russhwolf:multiplatform-settings-serialization", version.ref = "russhwolf-settings" }
+russhwolf-settings-noarg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "russhwolf-settings" }
+russhwolf-settings-coroutines = { module = "com.russhwolf:multiplatform-settings-coroutines", version.ref = "russhwolf-settings" }
 material-window-size = { module = "dev.chrisbanes.material3:material3-window-size-class-multiplatform", version.ref = "material-window-size" }
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 

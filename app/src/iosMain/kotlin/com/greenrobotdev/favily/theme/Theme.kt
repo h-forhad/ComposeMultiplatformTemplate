@@ -1,4 +1,4 @@
-package com.greenrobotdev.core.theme
+package com.greenrobotdev.favily.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable

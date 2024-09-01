@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.ComposeUIViewController
 import com.greenrobotdev.core.coreModule
-import com.greenrobotdev.core.theme.AppTheme
+import com.greenrobotdev.favily.theme.AppTheme
 import com.greenrobotdev.onlinestore.di.appStorage
 import com.greenrobotdev.onlinestore.onlineStoreModule
 import io.github.xxfast.decompose.router.LocalRouterContext

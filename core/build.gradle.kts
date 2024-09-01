@@ -34,6 +34,9 @@ kotlin {
         implementation(compose.materialIconsExtended)
         implementation(libs.material.window.size)
         implementation(compose.components.resources)
+        implementation(libs.russhwolf.settings)
+        implementation(libs.russhwolf.settings.coroutines)
+        implementation(libs.russhwolf.settings.noarg)
 
         implementation(libs.kotlin.corotines)
         implementation(libs.kotlin.datetime)
