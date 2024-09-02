@@ -16,6 +16,7 @@ import com.greenrobotdev.core.utils.LocalWindowSizeClass
 import com.greenrobotdev.onlinestore.di.appStorage
 import com.greenrobotdev.onlinestore.onlineStoreModule
 import com.greenrobotdev.favily.appModule
+import com.greenrobotdev.favily.theme.AppTheme
 import io.github.xxfast.decompose.router.LocalRouterContext
 import io.github.xxfast.decompose.router.RouterContext
 import io.github.xxfast.decompose.router.defaultRouterContext
@@ -49,7 +50,9 @@ fun main() {
         LocalRouterContext provides rootRouterContext,
         LocalWindowSizeClass provides windowSizeClass
       ) {
+        AppTheme {
           RootScreen()
+        }
       }
     }
   }

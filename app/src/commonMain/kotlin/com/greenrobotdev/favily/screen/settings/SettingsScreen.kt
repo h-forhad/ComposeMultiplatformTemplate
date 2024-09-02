@@ -176,7 +176,7 @@ fun AppThemeSettingsView(
                 ) {
                     RadioButton(
                         selected = appTheme == theme,
-                        onClick = {  }
+                        onClick = { onUpdateTheme(theme) }
                     )
 
                     Text(
@@ -191,10 +191,16 @@ fun AppThemeSettingsView(
 
 @Composable
 private fun SettingsItemView(
-    title: String, subtitle: String? = null, iconVector: ImageVector, onClick: () -> Unit
+    title: String,
+    subtitle: String? = null,
+    iconVector: ImageVector,
+    onClick: () -> Unit
 ) {
     Row(
-        modifier = Modifier.fillMaxSize().clickable { onClick() }.padding(16.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .clickable { onClick() }
+            .padding(16.dp),
         verticalAlignment = Alignment.Top,
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {

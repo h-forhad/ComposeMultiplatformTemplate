@@ -26,6 +26,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -43,6 +44,7 @@ import composemultiplatformtemplate.online_store.generated.resources.allStringRe
 import composemultiplatformtemplate.online_store.generated.resources.app_name
 import composemultiplatformtemplate.online_store.generated.resources.cart_button
 import composemultiplatformtemplate.online_store.generated.resources.favorite_button
+import composemultiplatformtemplate.online_store.generated.resources.ic_launcher
 import composemultiplatformtemplate.online_store.generated.resources.ic_test
 import composemultiplatformtemplate.online_store.generated.resources.retry_button
 import composemultiplatformtemplate.online_store.generated.resources.something_wrong
@@ -85,7 +87,19 @@ fun ProductListView(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(text = stringResource(Res.string.app_name))
+                    Row (
+                        verticalAlignment = Alignment.CenterVertically
+                    ){
+                        Icon(
+                            painter = painterResource(Res.drawable.ic_launcher),
+                            contentDescription = stringResource(Res.string.app_name)
+                        )
+                        Text(
+                            text = stringResource(Res.string.app_name),
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    }
+
                 },
                 actions = {
                     Row(modifier = Modifier.wrapContentWidth()) {
@@ -141,7 +155,7 @@ fun ProductListView(
                 ) {
                     Column(
                         verticalArrangement = Arrangement.spacedBy(12.dp),
-                        horizontalAlignment =Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(stringResource(Res.string.something_wrong))
 

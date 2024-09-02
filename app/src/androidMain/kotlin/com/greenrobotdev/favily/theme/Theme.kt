@@ -20,9 +20,7 @@ import com.greenrobotdev.core.utils.observableSettings
 import com.greenrobotdev.favily.data.models.APP_SETTINGS_APP_THEME
 import com.greenrobotdev.favily.data.models.AppSettings
 import com.greenrobotdev.favily.data.models.AppTheme
-import com.greenrobotdev.favily.data.models.LocalAppSettingsProvider
 import com.greenrobotdev.favily.data.models.get
-import com.russhwolf.settings.Settings
 
 @Composable
 actual fun AppTheme(

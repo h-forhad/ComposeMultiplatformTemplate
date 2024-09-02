@@ -32,7 +32,6 @@ enum class AppTheme {
             Dark -> stringResource(Res.string.app_theme_dark)
             SystemDefault -> stringResource(Res.string.app_theme_system_default)
         }
-
 }
 
 fun Settings.get(): AppSettings = AppSettings(

@@ -49,6 +49,8 @@ import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import com.arkivanov.decompose.router.stack.pushToFront
 import com.greenrobotdev.favily.screen.settings.SettingsScreen
+import composemultiplatformtemplate.app.generated.resources.ic_app
+import composemultiplatformtemplate.app.generated.resources.ic_launcher
 import io.github.xxfast.decompose.router.stack.rememberRouter
 import org.jetbrains.compose.resources.painterResource
 
@@ -61,7 +63,6 @@ fun RootScreen() {
         type = RootScreens::class,
         handleBackButton = false
     ) { RootScreens.entries.sortedBy { it == RootScreens.Home } }
-
 
     Row {
         if (windowSizeClass.widthSizeClass == WindowWidthSizeClass.Expanded) NavigationRail(
