@@ -1,7 +1,3 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
-import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
@@ -23,14 +19,18 @@ kotlin {
     jvm()
 
     sourceSets.commonMain.dependencies {
-        implementation(project(":core"))
-        api(project(":decompose-router"))
+        api(projects.decomposeRouter)
+
+        implementation(projects.core)
+
         implementation(compose.ui)
         implementation(compose.foundation)
         implementation(compose.material3)
         implementation(compose.runtime)
         implementation(compose.materialIconsExtended)
         implementation(compose.material)
+        implementation(libs.material.window.size)
+        implementation(compose.components.resources)
 
         implementation(libs.kotlin.corotines)
         implementation(libs.kotlin.datetime)
@@ -58,7 +58,6 @@ kotlin {
         implementation(libs.ktor.client.okhttp)
         implementation(libs.kstore.file)
         implementation(libs.androidx.appcompat)
-        implementation(libs.swipe.refresh)
     }
 
     sourceSets.jvmMain.dependencies {
@@ -66,7 +65,6 @@ kotlin {
         implementation(libs.ktor.client.cio)
         implementation(libs.kstore.file)
         implementation(libs.okio)
-        implementation(libs.swipe.refresh)
     }
 
     sourceSets.iosMain.dependencies {
@@ -76,12 +74,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.greenrobotdev.wanderwise.onlinestore"
+    namespace = "com.greenrobotdev.favily.onlinestore"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 28
-
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

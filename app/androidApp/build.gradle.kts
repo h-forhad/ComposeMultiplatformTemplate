@@ -46,5 +46,6 @@ dependencies {
     implementation(compose.preview)
     implementation(libs.koin.android)
     implementation(libs.koin.core)
+    implementation(libs.material.window.size)
     debugImplementation(compose.uiTooling)
 }

@@ -25,13 +25,18 @@ kotlin {
     )
 
     sourceSets.commonMain.dependencies {
-        api(project(":decompose-router"))
+        api(projects.decomposeRouter)
         implementation(compose.ui)
         implementation(compose.foundation)
         implementation(compose.material3)
         implementation(compose.material)
         implementation(compose.runtime)
         implementation(compose.materialIconsExtended)
+        implementation(libs.material.window.size)
+        implementation(compose.components.resources)
+        implementation(libs.russhwolf.settings)
+        implementation(libs.russhwolf.settings.coroutines)
+        implementation(libs.russhwolf.settings.noarg)
 
         implementation(libs.kotlin.corotines)
         implementation(libs.kotlin.datetime)
@@ -50,6 +55,8 @@ kotlin {
         implementation(libs.ktor.client.android)
         implementation(libs.ktor.client.okhttp)
         implementation(libs.kstore.file)
+        implementation(libs.androidx.activity.ktx)
+        implementation(libs.androidx.appcompat)
     }
 
     sourceSets.jvmMain.dependencies {

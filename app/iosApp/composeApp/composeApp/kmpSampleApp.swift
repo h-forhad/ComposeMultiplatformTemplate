@@ -1,5 +1,5 @@
 import SwiftUI
-import WanderWise
+import Favily
 
 @main
 struct kmpSampleApp: App {
@@ -10,7 +10,7 @@ struct kmpSampleApp: App {
 
   var body: some Scene {
     WindowGroup {
-      ComposeView(routerContext: defaultRouterContext)
+      ComposeView(routerContext: defaultRouterContext).ignoresSafeArea()
     }
     .onChange(of: scenePhase) { newPhase in
         switch newPhase {
@@ -37,11 +37,19 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 struct ComposeView: UIViewControllerRepresentable {
-  let routerContext: RouterContext
+      let routerContext: RouterContext
 
-  func makeUIViewController(context: Context) -> UIViewController {
-    return SampleAppViewControllerKt.createViewController(routerContext: routerContext)
-  }
+      func makeUIViewController(context: Context) -> UIViewController {
+        let controller = SampleAppViewControllerKt.createViewController(routerContext: routerContext)
+        return controller
+      }
 
-  func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+      func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+      }
+        
+      private func setupStatusBar(view: UIView) {
+        let statusBarColor = SampleAppViewControllerKt.getStatusBarColor()
+        let statusbarView = UIApplication.shared.statusBarUIView
+        statusbarView?.backgroundColor = statusBarColor
+    }
 }

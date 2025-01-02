@@ -10,10 +10,12 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":decompose-router"))
-    implementation(project(":app"))
-    implementation(project(":online-store"))
+    implementation(projects.decomposeRouter)
+    implementation(projects.app)
+    implementation(projects.core)
+    implementation(projects.onlineStore)
     implementation(compose.desktop.currentOs)
+    implementation(libs.material.window.size)
     implementation(compose.runtime)
     implementation(libs.koin.core)
     implementation(compose.foundation)
@@ -22,7 +24,6 @@ dependencies {
     implementation(compose.preview)
     implementation(libs.decompose)
     implementation(libs.decompose.compose)
-    implementation(project(":core"))
 }
 
 val appVersion = "1.0.0"
@@ -30,7 +31,7 @@ version = appVersion
 
 compose.desktop {
     application {
-        mainClass = "com.greenrobotdev.wanderwise.desktop.ApplicationKt"
+        mainClass = "com.greenrobotdev.favily.desktop.ApplicationKt"
 
         nativeDistributions {
             buildTypes.release {
@@ -45,20 +46,20 @@ compose.desktop {
 
             modules("java.instrument", "java.management", "jdk.unsupported")
 
-            packageName = "NYTimes"
+            packageName = "Favily"
 
             val iconsRoot = project.file("src/main/resources/icons")
 
             macOS {
-                iconFile.set { iconsRoot.resolve("nytimes-desktop.icns") }
+                iconFile.set { iconsRoot.resolve("favily-desktop.icns") }
                 packageVersion = appVersion
                 dmgPackageVersion = appVersion
                 pkgPackageVersion = appVersion
             }
 
             windows {
-                iconFile.set { iconsRoot.resolve("nytimes-desktop.ico") }
-                menuGroup = "NYTimes"
+                iconFile.set { iconsRoot.resolve("favily-desktop.ico") }
+                menuGroup = "Favily"
                 // see https://wixtoolset.org/documentation/manual/v3/howtos/general/generate_guids.html
                 upgradeUuid = "18159995-d967-4CD2-8885-77BFA97CFA9F"
                 packageVersion = appVersion
@@ -66,7 +67,7 @@ compose.desktop {
             }
 
             linux {
-                iconFile.set { iconsRoot.resolve("nytimes-desktop.png") }
+                iconFile.set { iconsRoot.resolve("favily_desktop.png") }
             }
         }
     }

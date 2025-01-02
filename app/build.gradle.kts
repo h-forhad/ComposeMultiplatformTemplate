@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.buildkonfig)
+    alias(libs.plugins.serialization)
 }
 
 kotlin {
@@ -22,15 +23,21 @@ kotlin {
     jvm()
 
     sourceSets.commonMain.dependencies {
-        implementation(project(":core"))
-        implementation(project(":online-store"))
-        api(project(":decompose-router"))
+        api(projects.decomposeRouter)
+
+        implementation(projects.core)
+        implementation(projects.onlineStore)
+
         implementation(compose.ui)
         implementation(compose.foundation)
         implementation(compose.material3)
         implementation(compose.runtime)
         implementation(compose.materialIconsExtended)
-
+        implementation(compose.material)
+        implementation(compose.components.resources)
+        implementation(libs.material.window.size)
+        implementation(libs.russhwolf.settings)
+        implementation(libs.russhwolf.settings.coroutines)
 
         implementation(libs.kotlin.corotines)
         implementation(libs.kotlin.datetime)
@@ -51,6 +58,8 @@ kotlin {
         implementation(libs.calendar.compose.ranges) // includes basis
         implementation(libs.calendar.compose.pager) // includes basis
         implementation(libs.calendar.compose.datepicker) // includes pager + ranges
+//        implementation(libs.material.window.size)
+
     }
 
     sourceSets.androidMain.dependencies {
@@ -90,7 +99,7 @@ kotlin.targets.withType<KotlinNativeTarget>().configureEach {
         baseName = App.appName
         isStatic = true
 
-        export(project(":decompose-router"))
+        export(projects.decomposeRouter)
     }
 }
 
@@ -111,9 +120,9 @@ buildkonfig {
 
 object App {
     object Versions {
-        val major: Int = 1
-        val minor: Int = 3
-        val patch: Int = 0
+        val major: Int = 0
+        val minor: Int = 0
+        val patch: Int = 1
 
         val suffix: String? = null
 
@@ -123,7 +132,7 @@ object App {
             .let { version -> if (suffix.isNullOrEmpty()) version else "$version-$suffix" }
     }
 
-    val packageName: String = "com.greenrobotdev.wanderwise"
+    val packageName: String = "com.greenrobotdev.favily"
     val organisation: String = "greenrobotdev"
-    val appName: String = "WanderWise"
+    val appName: String = "Favily"
 }
